@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar System Explorer | SPACE EXPLORER</title>
+  <meta name="description" content="Explore planets of our solar system visually with interactive 3D procedural sphere rendering, atmosphere specs, and weight calculation.">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/planets.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Starfield Canvas -->
+  <canvas id="starfield-canvas"></canvas>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-brand-logo">🪐</div>
+        <span>SPACE EXPLORER</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="planets.html" class="nav-link active">Planets</a></li>
+        <li><a href="moons.html" class="nav-link">Moons</a></li>
+        <li><a href="missions.html" class="nav-link">Missions</a></li>
+        <li><a href="spacecraft.html" class="nav-link">Spacecraft</a></li>
+        <li><a href="deep-space.html" class="nav-link">Deep Space</a></li>
+        <li><a href="compare.html" class="nav-link">Compare</a></li>
+        <li><a href="simulations.html" class="nav-link">Simulations</a></li>
+        <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn-icon" id="search-btn" title="Search (Ctrl+K)">🔍</button>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="explorer-header">
+      <span class="badge">SOLAR SYSTEM EXPLORER</span>
+      <h1 class="text-gradient-cyan" style="margin-top: 0.5rem;">OUR PLANETARY NEIGHBORHOOD</h1>
+      <p>Select a planet to view 3D procedural rendering, physical characteristics, atmospheric composition, and weight calculations.</p>
+    </section>
+
+    <!-- Solar System Interactive Selection Strip -->
+    <div class="solar-system-strip">
+      <div class="planet-node" data-planet="mercury">
+        <div class="planet-canvas-mini" style="background: radial-gradient(circle, #8c8c8c, #4a4a4a);"></div>
+        <span class="planet-name-label">Mercury</span>
+      </div>
+      <div class="planet-node" data-planet="venus">
+        <div class="planet-canvas-mini" style="background: radial-gradient(circle, #e3bb76, #a87932);"></div>
+        <span class="planet-name-label">Venus</span>
+      </div>
+      <div class="planet-node" data-planet="earth">
+        <div class="planet-canvas-mini" style="background: radial-gradient(circle, #2b82c9, #1b4d75);"></div>
+        <span class="planet-name-label">Earth</span>
+      </div>
+      <div class="planet-node active" data-planet="mars">
+        <div class="planet-canvas-mini" style="background: radial-gradient(circle, #c85a32, #7a2d12);"></div>
+        <span class="planet-name-label">Mars</span>
+      </div>
+      <div class="planet-node" data-planet="jupiter">
+        <div class="planet-canvas-mini" style="background: radial-gradient(circle, #d89a64, #8b5428);"></div>
+        <span class="planet-name-label">Jupiter</span>
+      </div>
+      <div class="planet-node" data-planet="saturn">
+        <div class="planet-canvas-mini" style="background: radial-gradient(circle, #e4d191, #9a854d);"></div>
+        <span class="planet-name-label">Saturn</span>
+      </div>
+      <div class="planet-node" data-planet="uranus">
+        <div class="planet-canvas-mini" style="background: radial-gradient(circle, #7de3f4, #358a98);"></div>
+        <span class="planet-name-label">Uranus</span>
+      </div>
+      <div class="planet-node" data-planet="neptune">
+        <div class="planet-canvas-mini" style="background: radial-gradient(circle, #3262d6, #162e6e);"></div>
+        <span class="planet-name-label">Neptune</span>
+      </div>
+    </div>
+
+    <!-- Planet Spotlight Stage -->
+    <section class="planet-detail-stage">
+      <!-- Left: Interactive Canvas -->
+      <div class="planet-interactive-view">
+        <canvas id="planet-canvas-large"></canvas>
+        <div class="canvas-hint">
+          <span>🔄 CLICK & DRAG TO SPIN PLANET</span>
+        </div>
+      </div>
+
+      <!-- Right: Info Sheet -->
+      <div class="glass-panel planet-info-sheet">
+        <h2 id="planet-name">MARS</h2>
+        <div id="planet-tagline" class="planet-tagline">The Red Planet</div>
+        <p id="planet-overview" class="planet-overview-text">
+          Mars is a dusty, cold, desert world with a very thin atmosphere.
+        </p>
+
+        <!-- Quick Stats Grid -->
+        <div class="planet-stats-grid">
+          <div class="stat-card">
+            <span class="stat-label">Diameter</span>
+            <span id="stat-diameter" class="stat-value">6,779 km</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Surface Gravity</span>
+            <span id="stat-gravity" class="stat-value">3.71 m/s²</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Length of Day</span>
+            <span id="stat-day" class="stat-value">24.6 hours</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Length of Year</span>
+            <span id="stat-year" class="stat-value">687 Earth days</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Moons Count</span>
+            <span id="stat-moons" class="stat-value">2</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Avg Temperature</span>
+            <span id="stat-temp" class="stat-value">-63°C</span>
+          </div>
+        </div>
+
+        <!-- Weight Calculator Widget -->
+        <div class="weight-calc-widget">
+          <h4>⚖️ WHAT WOULD YOUR WEIGHT BE HERE?</h4>
+          <div class="calc-input-group">
+            <label style="font-size:0.85rem; color:var(--text-muted);">Earth Weight (kg):</label>
+            <input type="number" id="planet-weight-input" class="calc-input" value="60">
+            <button id="calc-weight-btn" class="btn-primary" style="font-size: 0.75rem; padding: 0.5rem 1rem;">CALCULATE</button>
+            <span id="calc-weight-result" class="calc-result-badge">22.7 kg</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subsections (Atmosphere, Surface, Weather, Exploration) -->
+    <section class="planet-subsections glass-panel">
+      <div class="tab-buttons">
+        <button class="tab-btn active" data-tab="tab-atmos">ATMOSPHERE</button>
+        <button class="tab-btn" data-tab="tab-surface">SURFACE & GEOLOGY</button>
+        <button class="tab-btn" data-tab="tab-weather">WEATHER & CLIMATE</button>
+        <button class="tab-btn" data-tab="tab-exploration">EXPLORATION HISTORY</button>
+      </div>
+
+      <div id="tab-atmos" class="tab-content active">
+        <h3 style="margin-bottom: 0.8rem; color: var(--primary-cyan);">ATMOSPHERIC COMPOSITION</h3>
+        <p id="tab-atmos-text" style="color: var(--text-muted); line-height: 1.7;"></p>
+      </div>
+      <div id="tab-surface" class="tab-content">
+        <h3 style="margin-bottom: 0.8rem; color: var(--primary-cyan);">GEOLOGICAL FEATURES</h3>
+        <p id="tab-surface-text" style="color: var(--text-muted); line-height: 1.7;"></p>
+      </div>
+      <div id="tab-weather" class="tab-content">
+        <h3 style="margin-bottom: 0.8rem; color: var(--primary-cyan);">CLIMATE & STORMS</h3>
+        <p id="tab-weather-text" style="color: var(--text-muted); line-height: 1.7;"></p>
+      </div>
+      <div id="tab-exploration" class="tab-content">
+        <h3 style="margin-bottom: 0.8rem; color: var(--primary-cyan);">HUMAN & ROBOTIC MISSIONS</h3>
+        <p id="tab-exploration-text" style="color: var(--text-muted); line-height: 1.7;"></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Search Overlay Modal -->
+  <div class="search-modal-overlay" id="search-modal-overlay">
+    <div class="search-container">
+      <div class="search-header">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-input" id="search-input" placeholder="Search planets, moons, missions..." autocomplete="off">
+        <button class="search-close-btn" id="search-close">✕</button>
+      </div>
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-info">
+        <h3>🪐 SPACE EXPLORER</h3>
+        <p>Interactive planetary educational experience.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Space Explorer.</span>
+      <button class="back-to-top-btn" id="back-to-top">TOP 🚀</button>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/planets.js"></script>
+</body>
+</html>

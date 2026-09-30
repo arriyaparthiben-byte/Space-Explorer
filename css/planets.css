@@ -1,0 +1,285 @@
+/* ==========================================================================
+   SPACE EXPLORER - Planets & Solar System Styling
+   ========================================================================== */
+
+.explorer-header {
+  text-align: center;
+  padding: 3rem 1.5rem 2rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.explorer-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.explorer-header p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Solar System Interactive Visual Strip */
+.solar-system-strip {
+  width: 100%;
+  max-width: 1300px;
+  margin: 1.5rem auto 3rem auto;
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  overflow-x: auto;
+  position: relative;
+}
+
+.solar-system-strip::-webkit-scrollbar {
+  height: 6px;
+}
+.solar-system-strip::-webkit-scrollbar-thumb {
+  background: var(--primary-cyan-glow);
+  border-radius: 4px;
+}
+
+.sun-node {
+  flex-shrink: 0;
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle, #fff7ad 0%, #ffa500 50%, #ff4500 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 40px #ffa500, 0 0 80px rgba(255, 69, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: #000;
+  cursor: pointer;
+  transition: var(--tr-smooth);
+}
+
+.sun-node:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 60px #ffa500, 0 0 100px rgba(255, 69, 0, 0.9);
+}
+
+.planet-node {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  transition: var(--tr-fast);
+  padding: 0.8rem 1rem;
+  border-radius: 16px;
+  border: 1px solid transparent;
+}
+
+.planet-node:hover, .planet-node.active {
+  background: rgba(0, 240, 255, 0.08);
+  border-color: var(--primary-cyan-glow);
+  transform: translateY(-5px);
+}
+
+.planet-canvas-mini {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  pointer-events: none;
+}
+
+.planet-name-label {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.planet-node.active .planet-name-label {
+  color: var(--primary-cyan);
+  font-weight: 700;
+}
+
+/* Planet Spotlight / Detail Section */
+.planet-detail-stage {
+  max-width: 1300px;
+  margin: 0 auto 4rem auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.planet-interactive-view {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+}
+
+#planet-canvas-large {
+  width: 380px;
+  height: 380px;
+  max-width: 100%;
+  border-radius: 50%;
+  cursor: grab;
+  transition: transform 0.1s ease-out;
+}
+
+#planet-canvas-large:active {
+  cursor: grabbing;
+}
+
+.canvas-hint {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Planet Info Sheet */
+.planet-info-sheet h2 {
+  font-size: 2.8rem;
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+}
+
+.planet-tagline {
+  color: var(--primary-cyan);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.05em;
+}
+
+.planet-overview-text {
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Quick Stats Grid */
+.planet-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-glass);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* Planet Interactive Calculator Widget */
+.weight-calc-widget {
+  background: rgba(0, 240, 255, 0.05);
+  border: 1px solid var(--primary-cyan-glow);
+  border-radius: 14px;
+  padding: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.weight-calc-widget h4 {
+  font-size: 0.9rem;
+  color: var(--primary-cyan);
+  margin-bottom: 0.8rem;
+}
+
+.calc-input-group {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.calc-input {
+  background: rgba(5, 7, 20, 0.8);
+  border: 1px solid var(--border-glass);
+  color: var(--text-main);
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  width: 110px;
+}
+
+.calc-result-badge {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent-amber);
+}
+
+/* Tabbed Sections (Atmosphere, Surface, Moons, Facts) */
+.planet-subsections {
+  max-width: 1300px;
+  margin: 2rem auto 5rem auto;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border-glass);
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: var(--tr-fast);
+  white-space: nowrap;
+}
+
+.tab-btn:hover, .tab-btn.active {
+  color: var(--primary-cyan);
+  border-bottom-color: var(--primary-cyan);
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

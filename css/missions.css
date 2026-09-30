@@ -1,0 +1,158 @@
+/* ==========================================================================
+   SPACE EXPLORER - Missions & Spacecraft Gallery Styling
+   ========================================================================== */
+
+/* Timeline Section */
+.timeline-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem 0;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(180deg, var(--primary-cyan) 0%, var(--secondary-violet) 50%, var(--accent-magenta) 100%);
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px var(--primary-cyan-glow);
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 1.5rem 2.5rem;
+  box-sizing: border-box;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-node {
+  position: absolute;
+  top: 2rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg-dark);
+  border: 3px solid var(--primary-cyan);
+  box-shadow: 0 0 15px var(--primary-cyan);
+  z-index: 10;
+  transition: var(--tr-fast);
+}
+
+.timeline-item.left .timeline-node {
+  right: -10px;
+}
+
+.timeline-item.right .timeline-node {
+  left: -10px;
+}
+
+.timeline-item:hover .timeline-node {
+  transform: scale(1.4);
+  background: var(--primary-cyan);
+}
+
+.timeline-card {
+  cursor: pointer;
+}
+
+.timeline-year {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--primary-cyan);
+  margin-bottom: 0.4rem;
+}
+
+.timeline-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: var(--text-main);
+}
+
+.timeline-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Spacecraft Gallery Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1300px;
+  margin: 3rem auto;
+}
+
+.spacecraft-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.spacecraft-visual {
+  height: 200px;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+}
+
+.spacecraft-visual-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.spacecraft-badge {
+  position: relative;
+  z-index: 2;
+}
+
+.spacecraft-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.spacecraft-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 1rem 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.spacecraft-spec-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.3rem;
+}
+
+.spacecraft-spec-val {
+  color: var(--text-main);
+  font-weight: 600;
+}

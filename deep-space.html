@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deep Space Exploration | SPACE EXPLORER</title>
+  <meta name="description" content="Discover deep space topics: stars, stellar lifecycles, spiral galaxies, black holes, star nurseries, and exoplanets.">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <canvas id="starfield-canvas"></canvas>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-brand-logo">🪐</div>
+        <span>SPACE EXPLORER</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="planets.html" class="nav-link">Planets</a></li>
+        <li><a href="moons.html" class="nav-link">Moons</a></li>
+        <li><a href="missions.html" class="nav-link">Missions</a></li>
+        <li><a href="spacecraft.html" class="nav-link">Spacecraft</a></li>
+        <li><a href="deep-space.html" class="nav-link active">Deep Space</a></li>
+        <li><a href="compare.html" class="nav-link">Compare</a></li>
+        <li><a href="simulations.html" class="nav-link">Simulations</a></li>
+        <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn-icon" id="search-btn">🔍</button>
+        <button class="mobile-toggle" id="mobile-toggle">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="explorer-header">
+      <span class="badge badge-violet">BEYOND OUR SOLAR SYSTEM</span>
+      <h1 class="text-gradient-cyan" style="margin-top: 0.5rem;">DEEP SPACE DISCOVERIES</h1>
+      <p>Journey light-years away into the realms of birthing stars, massive black holes, and uncharted exoplanets.</p>
+    </section>
+
+    <!-- Content Sections Container -->
+    <div style="max-width: 1200px; margin: 0 auto 5rem auto; padding: 0 1.5rem; display: flex; flex-direction: column; gap: 3rem;">
+      
+      <!-- 1. Stars & Stellar Lifecycle -->
+      <section id="stars" class="glass-panel" style="padding: 2.5rem;">
+        <span class="badge badge-amber" style="margin-bottom: 0.8rem;">⭐ STARS & STELLAR EVOLUTION</span>
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;">The Lifecycle of Stars</h2>
+        <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem;">
+          Stars are giant spheres of glowing plasma powered by nuclear fusion in their cores. Depending on their initial mass, stars live for millions to trillions of years before evolving into exotic cosmic remnants.
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.2rem;">
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 12px; padding: 1.2rem;">
+            <h4 style="color: var(--primary-cyan); font-family: var(--font-display); margin-bottom: 0.4rem;">Protostar & Main Sequence</h4>
+            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5;">Collapsing clouds of gas fuse Hydrogen into Helium (like our Sun currently does).</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 12px; padding: 1.2rem;">
+            <h4 style="color: var(--accent-amber); font-family: var(--font-display); margin-bottom: 0.4rem;">Red Giant Stage</h4>
+            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5;">Exhausting core hydrogen causes the outer layers to expand dramatically.</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 12px; padding: 1.2rem;">
+            <h4 style="color: var(--secondary-violet); font-family: var(--font-display); margin-bottom: 0.4rem;">Supernova & Remnants</h4>
+            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5;">Massive stars detonate in titanic explosions, leaving White Dwarfs, Neutron Stars, or Black Holes.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Black Holes -->
+      <section id="black-holes" class="glass-panel" style="padding: 2.5rem; border-color: rgba(138, 43, 226, 0.4);">
+        <span class="badge badge-violet" style="margin-bottom: 0.8rem;">🕳️ GRAVITATIONAL MONSTERS</span>
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Black Holes & Event Horizons</h2>
+        <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem;">
+          A black hole is a region of spacetime where gravity is so strong that nothing—no particles or light—can escape from inside its event horizon.
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.2rem;">
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 12px; padding: 1.2rem;">
+            <h4 style="color: var(--primary-cyan); font-family: var(--font-display); margin-bottom: 0.4rem;">Stellar-Mass</h4>
+            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5;">Formed when a massive star collapses at the end of its life (5 to 100 solar masses).</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 12px; padding: 1.2rem;">
+            <h4 style="color: var(--secondary-violet); font-family: var(--font-display); margin-bottom: 0.4rem;">Supermassive</h4>
+            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5;">Millions to billions of solar masses residing at the centers of almost all large galaxies (e.g. Sagittarius A*).</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Galaxies & Nebulae -->
+      <section id="galaxies" class="glass-panel" style="padding: 2.5rem;">
+        <span class="badge" style="margin-bottom: 0.8rem;">🌌 GALAXIES & NEBULAE</span>
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Cosmic Islands & Cosmic Nurseries</h2>
+        <p style="color: var(--text-muted); line-height: 1.7;">
+          Galaxies contain hundreds of billions of stars bound together by gravity. Between the stars lie nebulae—vast interstellar clouds of gas and dust where new star systems condense and ignite.
+        </p>
+      </section>
+
+      <!-- 4. Exoplanets & Habitable Zone -->
+      <section id="exoplanets" class="glass-panel" style="padding: 2.5rem;">
+        <span class="badge badge-ocean" style="margin-bottom: 0.8rem;">🪐 ALIEN WORLDS</span>
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Exoplanets & The Goldilocks Zone</h2>
+        <p style="color: var(--text-muted); line-height: 1.7;">
+          Astronomers have confirmed over 5,500 exoplanets orbiting distant stars. The "Habitable Zone" (Goldilocks Zone) is the orbital distance around a star where liquid water could exist on a planet's surface.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <div class="search-modal-overlay" id="search-modal-overlay">
+    <div class="search-container">
+      <div class="search-header">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-input" id="search-input" placeholder="Search deep space..." autocomplete="off">
+        <button class="search-close-btn" id="search-close">✕</button>
+      </div>
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-info">
+        <h3>🪐 SPACE EXPLORER</h3>
+        <p>Interactive astronomy and space education platform.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Space Explorer.</span>
+      <button class="back-to-top-btn" id="back-to-top">TOP 🚀</button>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

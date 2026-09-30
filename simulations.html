@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Space Simulations | SPACE EXPLORER</title>
+  <meta name="description" content="Engage with interactive space simulations: multi-planet weight calculator, cosmic scale zoom engine, and 2D orbital mechanics simulator.">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <canvas id="starfield-canvas"></canvas>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-brand-logo">🪐</div>
+        <span>SPACE EXPLORER</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="planets.html" class="nav-link">Planets</a></li>
+        <li><a href="moons.html" class="nav-link">Moons</a></li>
+        <li><a href="missions.html" class="nav-link">Missions</a></li>
+        <li><a href="spacecraft.html" class="nav-link">Spacecraft</a></li>
+        <li><a href="deep-space.html" class="nav-link">Deep Space</a></li>
+        <li><a href="compare.html" class="nav-link">Compare</a></li>
+        <li><a href="simulations.html" class="nav-link active">Simulations</a></li>
+        <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn-icon" id="search-btn">🔍</button>
+        <button class="mobile-toggle" id="mobile-toggle">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="explorer-header">
+      <span class="badge badge-violet">INTERACTIVE PHYSICS</span>
+      <h1 class="text-gradient-cyan" style="margin-top: 0.5rem;">SPACE SIMULATION LABORATORY</h1>
+      <p>Test gravitational forces, zoom across cosmic orders of magnitude, and simulate orbital trajectories.</p>
+    </section>
+
+    <div style="max-width: 1200px; margin: 0 auto 5rem auto; padding: 0 1.5rem; display: flex; flex-direction: column; gap: 4rem;">
+      
+      <!-- Simulation 1: Multi-Planet Weight Calculator -->
+      <section id="weight-calc" class="glass-panel" style="padding: 2.5rem;">
+        <span class="badge badge-amber" style="margin-bottom: 0.8rem;">SIMULATION 01</span>
+        <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">Multi-Planet Gravity Weight Calculator</h2>
+        <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+          Enter your weight on Earth to see how much you would weigh on different worlds across the Solar System due to varying gravitational acceleration.
+        </p>
+
+        <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 2rem;">
+          <label style="font-family: var(--font-display); font-size: 0.9rem; color: var(--primary-cyan);">YOUR EARTH WEIGHT (KG):</label>
+          <input type="number" id="calc-earth-weight" class="calc-input" value="60" style="width: 130px;">
+        </div>
+
+        <div id="weight-results-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1.2rem;"></div>
+      </section>
+
+      <!-- Simulation 2: Cosmic Scale Zoom -->
+      <section id="cosmic-scale" class="glass-panel" style="padding: 2.5rem;">
+        <span class="badge badge-violet" style="margin-bottom: 0.8rem;">SIMULATION 02</span>
+        <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">Cosmic Scale Interactive Zoom</h2>
+        <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+          Drag the slider to zoom out from the human scale to Mount Everest, Earth, the Solar System, Milky Way, and the Observable Universe.
+        </p>
+
+        <div style="margin-bottom: 2rem; padding: 1rem; background: rgba(5, 7, 20, 0.6); border-radius: 14px; border: 1px solid var(--border-glass);">
+          <input type="range" id="cosmic-scale-slider" min="1" max="8" value="3" style="width: 100%; accent-color: var(--primary-cyan); cursor: pointer;">
+          <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-dim); margin-top: 0.5rem; font-family: var(--font-display);">
+            <span>HUMAN</span>
+            <span>EARTH</span>
+            <span>SOLAR SYSTEM</span>
+            <span>MILKY WAY</span>
+            <span>UNIVERSE</span>
+          </div>
+        </div>
+
+        <div style="text-align: center; padding: 2rem; background: rgba(0, 240, 255, 0.05); border-radius: 16px; border: 1px solid var(--primary-cyan-glow);">
+          <h3 id="cosmic-scale-name" style="font-size: 2rem; color: var(--primary-cyan); margin-bottom: 0.4rem;">Planet Earth</h3>
+          <div id="cosmic-scale-value" style="font-family: var(--font-display); font-size: 1.2rem; color: var(--accent-amber); margin-bottom: 1rem;">12,742 km (10^7 m)</div>
+          <p id="cosmic-scale-desc" style="color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.6;">Our blue marble home world in space.</p>
+        </div>
+      </section>
+
+      <!-- Simulation 3: Orbit Visualizer Canvas -->
+      <section id="orbit-sim" class="glass-panel" style="padding: 2.5rem;">
+        <span class="badge" style="margin-bottom: 0.8rem;">SIMULATION 03</span>
+        <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">2D Orbital Mechanics Simulator</h2>
+        <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+          Adjust orbital velocity and distance to visualize planetary motion and elliptical orbits around a central star.
+        </p>
+
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: center;">
+          <div style="display: flex; justify-content: center; background: rgba(5, 7, 20, 0.8); border-radius: 16px; border: 1px solid var(--border-glass); padding: 1rem;">
+            <canvas id="orbit-canvas" style="max-width: 100%;"></canvas>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+            <div>
+              <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.4rem;">ORBITAL DISTANCE:</label>
+              <input type="range" id="orbit-dist-slider" min="60" max="170" value="120" style="width: 100%; accent-color: var(--primary-cyan);">
+            </div>
+            <div>
+              <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.4rem;">ORBITAL VELOCITY:</label>
+              <input type="range" id="orbit-speed-slider" min="0.005" max="0.06" step="0.005" value="0.02" style="width: 100%; accent-color: var(--secondary-violet);">
+            </div>
+            <button id="orbit-pause-btn" class="btn-primary" style="margin-top: 0.5rem; justify-content: center;">PAUSE ⏸</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <div class="search-modal-overlay" id="search-modal-overlay">
+    <div class="search-container">
+      <div class="search-header">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-input" id="search-input" placeholder="Search simulations..." autocomplete="off">
+        <button class="search-close-btn" id="search-close">✕</button>
+      </div>
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-info">
+        <h3>🪐 SPACE EXPLORER</h3>
+        <p>Interactive astronomy and space education platform.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Space Explorer.</span>
+      <button class="back-to-top-btn" id="back-to-top">TOP 🚀</button>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/simulations.js"></script>
+</body>
+</html>

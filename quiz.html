@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Quiz & Challenge | SPACE EXPLORER</title>
+  <meta name="description" content="Test your astronomy knowledge with 10 interactive multiple-choice questions and earn cosmic rank badges.">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/quiz.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <canvas id="starfield-canvas"></canvas>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-brand-logo">🪐</div>
+        <span>SPACE EXPLORER</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="planets.html" class="nav-link">Planets</a></li>
+        <li><a href="moons.html" class="nav-link">Moons</a></li>
+        <li><a href="missions.html" class="nav-link">Missions</a></li>
+        <li><a href="spacecraft.html" class="nav-link">Spacecraft</a></li>
+        <li><a href="deep-space.html" class="nav-link">Deep Space</a></li>
+        <li><a href="compare.html" class="nav-link">Compare</a></li>
+        <li><a href="simulations.html" class="nav-link">Simulations</a></li>
+        <li><a href="quiz.html" class="nav-link active">Quiz</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn-icon" id="search-btn">🔍</button>
+        <button class="mobile-toggle" id="mobile-toggle">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="explorer-header">
+      <span class="badge badge-amber">KNOWLEDGE TEST</span>
+      <h1 class="text-gradient-cyan" style="margin-top: 0.5rem;">ASTRONOMY QUIZ CHALLENGE</h1>
+      <p>Answer 10 cosmic questions to earn your rank as a Master Astronomer.</p>
+    </section>
+
+    <div class="quiz-container">
+      
+      <!-- Active Quiz Card -->
+      <div id="quiz-active-card" class="glass-panel quiz-card">
+        <div class="quiz-progress-bar-wrap">
+          <div id="quiz-progress-fill" class="quiz-progress-fill"></div>
+        </div>
+
+        <div class="quiz-meta-bar">
+          <span id="quiz-counter" class="question-counter">QUESTION 01 / 10</span>
+          <span class="badge badge-violet">CHOICE QUIZ</span>
+        </div>
+
+        <div id="question-text" class="question-text">
+          Which planet is known as the Red Planet?
+        </div>
+
+        <div id="options-grid" class="options-grid"></div>
+
+        <div id="feedback-box" class="feedback-box"></div>
+
+        <div style="text-align: right; margin-top: 1.5rem;">
+          <button id="quiz-next-btn" class="btn-primary" style="display: none;">NEXT QUESTION ➔</button>
+        </div>
+      </div>
+
+      <!-- Final Results Screen Card -->
+      <div id="quiz-result-card" class="glass-panel quiz-result-card" style="display: none;">
+        <span class="badge badge-amber">🚀 MISSION COMPLETE</span>
+        <h2 style="font-size: 2rem; margin-top: 0.8rem;">QUIZ PERFORMANCE REPORT</h2>
+
+        <div id="final-score-val" class="score-big">8 / 10</div>
+
+        <div id="final-rank-title" class="rank-title">Master Astronomer 🌌</div>
+        <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 2rem auto; line-height: 1.6;">
+          Outstanding work! You possess exceptional knowledge of our Solar System and the universe.
+        </p>
+
+        <div class="quiz-action-btns">
+          <button id="quiz-retry-btn" class="btn-primary">TRY AGAIN 🔄</button>
+          <a href="planets.html" class="btn-secondary">EXPLORE MORE 🪐</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="search-modal-overlay" id="search-modal-overlay">
+    <div class="search-container">
+      <div class="search-header">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-input" id="search-input" placeholder="Search quiz..." autocomplete="off">
+        <button class="search-close-btn" id="search-close">✕</button>
+      </div>
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-info">
+        <h3>🪐 SPACE EXPLORER</h3>
+        <p>Interactive astronomy and space education platform.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Space Explorer.</span>
+      <button class="back-to-top-btn" id="back-to-top">TOP 🚀</button>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
